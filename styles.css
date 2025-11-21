@@ -1,0 +1,809 @@
+﻿/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --secondary: #ec4899;
+    --accent: #f59e0b;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --error: #ef4444;
+    --bg-light: #f8fafc;
+    --bg-white: #ffffff;
+    --text-dark: #1e293b;
+    --text-light: #64748b;
+    --border: #e2e8f0;
+}
+
+body {
+    font-family: 'Comic Neue', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.site-header {
+    background: var(--bg-white);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 1rem 0;
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    font-size: 2rem;
+}
+
+.logo h1 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+nav {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-btn {
+    padding: 10px 20px;
+    border: none;
+    background: transparent;
+    color: var(--text-light);
+    font-family: 'Comic Neue', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    background: var(--bg-light);
+    color: var(--primary);
+}
+
+.nav-btn.active {
+    background: var(--primary);
+    color: white;
+}
+
+/* Sections */
+.section {
+    display: none;
+    padding: 3rem 0;
+    min-height: calc(100vh - 200px);
+}
+
+.section.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-title {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    color: white;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.hero-title {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 3.5rem;
+    color: white;
+    margin-bottom: 1rem;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 3rem;
+}
+
+.hero-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+    color: var(--text-light);
+}
+
+/* Buttons */
+.btn-primary {
+    background: var(--secondary);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
+}
+
+.btn-primary:hover {
+    background: #db2777;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(236, 72, 153, 0.6);
+}
+
+.btn-large {
+    padding: 20px 40px;
+    font-size: 1.5rem;
+}
+
+/* Lessons Grid */
+.lessons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.lesson-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.lesson-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+}
+
+.lesson-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.lesson-number {
+    width: 50px;
+    height: 50px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.lesson-card h3 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.lesson-card p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+.btn-lesson {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-family: 'Comic Neue', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.btn-lesson:hover {
+    background: var(--primary-dark);
+    transform: scale(1.05);
+}
+
+/* Playground */
+.playground-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.code-editor {
+    background: #1e293b;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.editor-header {
+    background: #0f172a;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.editor-title {
+    color: white;
+    font-weight: 700;
+    font-family: 'Fredoka', sans-serif;
+}
+
+.btn-run {
+    background: var(--success);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 15px;
+    font-family: 'Comic Neue', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-run:hover {
+    background: #059669;
+    transform: scale(1.05);
+}
+
+.code-textarea {
+    width: 100%;
+    min-height: 400px;
+    padding: 20px;
+    background: #1e293b;
+    color: #10b981;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    border: none;
+    resize: vertical;
+    outline: none;
+}
+
+.output-area {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.output-header {
+    background: var(--primary);
+    color: white;
+    padding: 15px 20px;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+}
+
+#canvas-output {
+    display: block;
+    width: 100%;
+    height: 400px;
+    background: white;
+}
+
+.text-output {
+    padding: 20px;
+    min-height: 100px;
+    font-family: 'Courier New', monospace;
+    color: var(--text-dark);
+    background: #f8fafc;
+}
+
+.playground-hints {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.playground-hints h3 {
+    font-family: 'Fredoka', sans-serif;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.hints-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.hints-grid code {
+    background: var(--bg-light);
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-family: 'Courier New', monospace;
+    color: var(--primary);
+    display: block;
+    text-align: center;
+}
+
+/* Challenges */
+.challenges-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.challenge-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.challenge-card:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.challenge-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.badge {
+    background: var(--primary);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.difficulty {
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.difficulty.easy {
+    background: var(--success);
+    color: white;
+}
+
+.difficulty.medium {
+    background: var(--warning);
+    color: white;
+}
+
+.difficulty.hard {
+    background: var(--error);
+    color: white;
+}
+
+.challenge-card h3 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.challenge-card p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+.challenge-editor {
+    margin-bottom: 1rem;
+}
+
+.challenge-code {
+    width: 100%;
+    min-height: 150px;
+    padding: 15px;
+    background: #1e293b;
+    color: #10b981;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    border: none;
+    border-radius: 10px;
+    resize: vertical;
+    outline: none;
+    margin-bottom: 10px;
+}
+
+.btn-check {
+    background: var(--success);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 20px;
+    font-family: 'Comic Neue', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-check:hover {
+    background: #059669;
+    transform: scale(1.05);
+}
+
+.challenge-feedback {
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 1rem;
+    font-weight: 700;
+    display: none;
+}
+
+.challenge-feedback.success {
+    background: #d1fae5;
+    color: #065f46;
+    display: block;
+}
+
+.challenge-feedback.error {
+    background: #fee2e2;
+    color: #991b1b;
+    display: block;
+}
+
+/* Progress Section */
+.progress-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.progress-section h3 {
+    font-family: 'Fredoka', sans-serif;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 30px;
+    background: var(--bg-light);
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 15px;
+    transition: width 0.5s ease;
+    width: 0%;
+}
+
+.progress-text {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    font-weight: 700;
+}
+
+/* Footer */
+.site-footer {
+    background: var(--bg-white);
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.site-footer p {
+    color: var(--text-light);
+    font-weight: 700;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* Playground Controls */
+.playground-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.btn-clear, .btn-example {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-family: 'Comic Neue', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-clear:hover, .btn-example:hover {
+    background: #d97706;
+    transform: scale(1.05);
+}
+
+/* Templates Section */
+.templates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.template-card {
+    background: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.template-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.template-card h3 {
+    font-family: 'Fredoka', sans-serif;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.template-card p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.template-code {
+    background: #1e293b;
+    color: #10b981;
+    padding: 1rem;
+    border-radius: 10px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+    white-space: pre-wrap;
+}
+
+.btn-template {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-family: 'Comic Neue', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.btn-template:hover {
+    background: var(--primary-dark);
+    transform: scale(1.05);
+}
+
+/* Games Section */
+.games-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.game-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.game-card h3 {
+    font-family: 'Fredoka', sans-serif;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.game-card p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+#art-canvas {
+    width: 100%;
+    height: 400px;
+    border: 3px solid var(--primary);
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    background: white;
+}
+
+.game-output {
+    background: #f8fafc;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem;
+    min-height: 100px;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.game-code {
+    width: 100%;
+    min-height: 100px;
+    padding: 15px;
+    background: #1e293b;
+    color: #10b981;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    border: none;
+    border-radius: 10px;
+    resize: vertical;
+    outline: none;
+    margin-bottom: 1rem;
+}
+
+.color-display {
+    width: 100%;
+    height: 150px;
+    border: 3px solid var(--primary);
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.btn-game {
+    background: var(--secondary);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 20px;
+    font-family: 'Comic Neue', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 5px;
+}
+
+.btn-game:hover {
+    background: #db2777;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .playground-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .nav-btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    .templates-grid,
+    .games-container {
+        grid-template-columns: 1fr;
+    }
+
+    .playground-controls {
+        flex-direction: column;
+    }
+
+    .btn-clear, .btn-example {
+        width: 100%;
+    }
+}
